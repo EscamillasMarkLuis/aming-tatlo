@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Circle Button Lights Up</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* General Reset */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .col-50 {
+      width: 50%;
+      margin: auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    h3 {
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .icon-container {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    .circle-button {
+      width: 30px;
+      height: 30px;
+      background-color: #e0e0e0;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      border: 2px solid transparent;
+    }
+
+    .circle-button:hover {
+      background-color: #ccc;
+    }
+
+    .circle-button.active {
+      border-color: #007bff;
+      background-color: #007bff;
+      box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+    }
+
+    .circle-button i {
+      font-size: 18px;
+      color: #fff;
+    }
+
+    .payment-option {
+      display: flex;
+      align-items: center;
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    .payment-option span {
+      margin-left: 10px;
+    }
+
+    /* Payment icons color */
+    .fa-cc-visa {
+      background-color: navy;
+      padding: 5px;
+      border-radius: 50%;
+    }
+
+    .fa-cc-mastercard {
+      background-color: red;
+      padding: 5px;
+      border-radius: 50%;
+    }
+
+    .fa-cc-discover {
+      background-color: orange;
+      padding: 5px;
+      border-radius: 50%;
+    }
+  </style>
+</head>
+<body>
+
+<div class="col-50">
+  <h3>Payment Method</h3>
+  <label for="fname">Accepted Cards</label>
+  <div class="payment-option">
+    <div class="circle-button" onclick="toggleActive(this)">
+      <i class="fa fa-cc-visa"></i>
+    </div>
+    <span>Visa</span>
+  </div>
+  <div class="payment-option">
+    <div class="circle-button" onclick="toggleActive(this)">
+      <i class="fa fa-cc-mastercard"></i>
+    </div>
+    <span>MasterCard</span>
+  </div>
+  <div class="payment-option">
+    <div class="circle-button" onclick="toggleActive(this)">
+      <i class="fa fa-cc-discover"></i>
+    </div>
+    <span>Discover</span>
+  </div>
+</div>
+
+<script>
+  // Toggle active class on the clicked circle button
+  function toggleActive(element) {
+    // Remove the active class from all buttons
+    const buttons = document.querySelectorAll('.circle-button');
+    buttons.forEach(button => button.classList.remove('active'));
+
+    // Add active class to the clicked button
+    element.classList.add('active');
+  }
+</script>
+
+</body>
+</html>
